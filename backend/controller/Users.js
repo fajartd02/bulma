@@ -12,6 +12,12 @@ export const getUsers = async (req, res) => {
 
 export const Register = async (req, res) => {
     const { name, email, password, confPassword } = req.body;
+
+    const valid = await Users.findOne({ where: {email: email} });
+    if(valid !== null) {
+        return res.status(400).json({message: "Email sudah ada"});
+    }
+
     if(password !== confPassword) {
         return res.status(400).json({message: "Password dan Confirm Password tidak match"});
     }
