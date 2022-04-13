@@ -1,8 +1,10 @@
 import express from "express";
+import dotenv from "dotenv";
 import db from "./config/Database.js";
 import router from "./routes/index.js";
 // import Users from "./models/UserModel.js"; // Not using again cuz i've create it
 
+dotenv.config();
 const app = express();
 const PORT = 5000;
 
