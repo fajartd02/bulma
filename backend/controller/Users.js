@@ -44,7 +44,7 @@ export const Login = async (req, res) => {
         const user = await Users.findOne({
             where: {
                 email: req.body.email
-            }
+            } 
         });
         const match = await bcrypt.compare(req.body.password, user.password);
         if(!match) {
