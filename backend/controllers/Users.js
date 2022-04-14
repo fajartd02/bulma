@@ -81,3 +81,30 @@ export const Login = async (req, res) => {
         res.status(404).json({message: "Email tidak ditemukan!"});
     }
 }
+
+export const Logout = async (req, res) => {
+    const refreshToken = req.cookies.refreshToken; // nama cookies pas login
+    if(!refreshToken) {
+        return res.sendStatus(204); //no content
+    }
+
+    const user = await Users.findOne({
+        where: {
+            refresh_token: refreshToken
+        } 
+    });
+
+    if(!user) {
+        return res.sendStatus(204); // no-content
+    }
+    const userId = user.id;
+
+    await Users.update({refresh_token: null}, {
+        where: {
+            id: userId
+        }
+    });
+    
+    res.clearCookie('refreshToken'); // Hapus cookies
+    return res.sendStatus(200); // OK
+}

@@ -1,7 +1,8 @@
+### get user
 GET http://localhost:5000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJGYWphciBNLiBIYW1rYSIsImVtYWlsIjoiZmFqYXJAZ21haWwuY29tIiwiaWF0IjoxNjQ5OTM5NjI1LCJleHAiOjE2NDk5Mzk2NDV9.ZxPbOVTjdac1i9L_qg93cQpYfEWyM3g7xG0bka1Ym9Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJGYWphciBNLiBIYW1rYSIsImVtYWlsIjoiZmFqYXJAZ21haWwuY29tIiwiaWF0IjoxNjQ5OTQwNTQxLCJleHAiOjE2NDk5NDA1NTZ9.eiB_W7G_M0yV24YJzXK27NWRT9hma3rGXBq1i3eJ1j0
 
-###
+### register user
 POST http://localhost:5000/users
 Content-Type: application/json
 
@@ -12,7 +13,7 @@ Content-Type: application/json
     "confPassword": "123456"
 }
 
-###
+### Login
 POST http://localhost:5000/login
 Content-Type: application/json
 
@@ -21,5 +22,8 @@ Content-Type: application/json
     "password": "123456"
 }
 
-###
+### Minta token
 GET http://localhost:5000/token
+
+### Logout
+DELETE http://localhost:5000/logout
