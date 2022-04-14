@@ -1,7 +1,7 @@
 import Users from "../models/UserModel.js";
 import jwt from "jsonwebtoken";
 
-export const refreshToken = async (req, res) => {
+export const refreshToken = async(req, res) => {
     try {
         const refreshToken = req.cookies.refreshToken; // nama cookies pas login
         if(!refreshToken) {

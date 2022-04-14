@@ -2,7 +2,7 @@ import Users from "../models/UserModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-export const getUsers = async (req, res) => {
+export const getUsers = async(req, res) => {
     try {
         const users = await Users.findAll({
             attributes: ['id', 'name', 'email']
@@ -13,7 +13,7 @@ export const getUsers = async (req, res) => {
     }
 }
 
-export const Register = async (req, res) => {
+export const Register = async(req, res) => {
     const { name, email, password, confPassword } = req.body;
 
     const valid = await Users.findOne({ where: {email} });
@@ -41,7 +41,7 @@ export const Register = async (req, res) => {
     }
 }
 
-export const Login = async (req, res) => {
+export const Login = async(req, res) => {
     try {
         const user = await Users.findOne({
             where: {
@@ -82,7 +82,7 @@ export const Login = async (req, res) => {
     }
 }
 
-export const Logout = async (req, res) => {
+export const Logout = async(req, res) => {
     const refreshToken = req.cookies.refreshToken; // nama cookies pas login
     if(!refreshToken) {
         return res.sendStatus(204); //no content
