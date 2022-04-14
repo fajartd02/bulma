@@ -10,6 +10,11 @@
 - bcrypt
 - cookie-parser
 - cors
+- React Router DOM
+- Axios
+- Bulma CSS
+- jwt-decode
+
 
 # Backend
 - ```http://localhost:5000/```
