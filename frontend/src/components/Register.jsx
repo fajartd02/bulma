@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
   const [name, setName] = useState('');
@@ -89,6 +89,7 @@ function Register() {
                 <div className="field mt-5">
                   <button className='button is-success is-fullwidth'>Register</button>
                 </div>
+                <Link to="/">Have an account? <u>Login here</u></Link>
               </form>
             </div>
           </div>
