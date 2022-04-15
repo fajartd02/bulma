@@ -1,6 +1,19 @@
 import React from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
+    const navigate = useNavigate();
+
+    const Logout = async() => {
+        try {
+            await axios.delete('http://localhost:5000/logout');
+            navigate('/');
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
     return (
         <nav className="navbar is-light" role="navigation" aria-label="main navigation">
             <div className="container">
@@ -26,9 +39,9 @@ function Navbar() {
                     <div className="navbar-end">
                         <div className="navbar-item">
                             <div className="buttons">
-                                <a className="button is-light">
+                                <button onClick={Logout} className="button is-light">
                                     Log Out
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
