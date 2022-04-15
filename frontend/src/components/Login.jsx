@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -57,6 +57,7 @@ function Login() {
                 <div className="field mt-5">
                   <button className='button is-success is-fullwidth'>Login</button>
                 </div>
+                <Link to="/register">Dont have an account? <u>Regist here</u></Link>
               </form>
             </div>
           </div>
